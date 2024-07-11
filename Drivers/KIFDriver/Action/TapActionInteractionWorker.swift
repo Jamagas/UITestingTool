@@ -25,12 +25,6 @@ final class TapActionInteractionWorker: KIFInteractionWorker {
             let targets = button.allTargets
             
             for target in targets {
-                if let actions = button.actions(forTarget: target, forControlEvent: .touchDown), !actions.isEmpty {
-                    button.sendActions(for: .touchDown)
-                    element.waitForAnimationsToFinish()
-                    return
-                }
-                
                 if let actions = button.actions(forTarget: target, forControlEvent: .touchUpInside), !actions.isEmpty {
                     button.sendActions(for: .touchUpInside)
                     element.waitForAnimationsToFinish()
